@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ko" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    {% include "../include/head.html" %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+    {% include "../include/foot.html" %}
+</body>
+</html>
