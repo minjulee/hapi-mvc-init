@@ -14,7 +14,7 @@ module.exports = {
     send : {
         handler : function(request, reply){
             model.GetRecordSet("select * from ni_user_bbs", function (recordset) {
-                reply.view("email/index", {title : "타이틀 입니다.", data : recordset});
+                reply.view("email/index", {title : process.env.NODE_ENV, data : recordset});
             });
         },
         id : "send"

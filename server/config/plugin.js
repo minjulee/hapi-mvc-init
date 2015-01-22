@@ -9,17 +9,7 @@ var goodOptions = {
         args:[{ ops: '*', request: '*', log: '*', response: '*', 'error': '*' }]
     }]
 };
-/*
- rootpath Module example
- ex) Before : var myLib = require('../myLibrary');
- var myUtils = require('../../utils/myUtils');
- var myTest = require('../../test/myTest');
- After  : var myLib = require('lib/myLibrary');
- var myUtils = require('utils/myUtils');
- var myTest = require('test/myTest');
- */
-var server = reqlib("server");
-
+var server = reqlib("/server");
 var assetOptions = settings.assetsOptions;
 
 // load multiple plugins

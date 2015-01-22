@@ -10,12 +10,12 @@ module.exports = {
     host: 'localhost',
     assetsOptions :{
         development: {
-            js: ['public/js/test-one.js', 'public/js/test-two.js'],
-            css: ['public/css/test-one.css', 'public/css/test-two.css']
+            js: ['js/test-one.js', 'js/test-two.js'],
+            css: ['css/test-one.css', 'css/test-two.css']
         },
         production: {
-            js: ['public/js/scripts.js'],
-            css: ['public/css/styles.css']
+            js: ['js/scripts.js'],
+            css: ['css/styles.css']
         }
     },
     dbConfig : {

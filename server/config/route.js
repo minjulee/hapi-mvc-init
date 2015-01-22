@@ -22,11 +22,9 @@ module.exports = [
         path: '/{path*}',
         config: controller.email.missing
     },
-    {
-        method: 'GET',
-        path: '/partials/{path*}',
-        config: controller.assets.partials
-    },
+    /**
+     * 아래부턴 image, css, js 등의 외부 파일 주소 처리
+     */
     {
         method: 'GET',
         path: '/images/{path*}',
