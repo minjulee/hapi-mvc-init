@@ -39,5 +39,10 @@ module.exports = [
         method: 'GET',
         path: '/js/{path*}',
         config: controller.assets.js
+    },
+    {
+        method: 'GET',
+        path: '/fonts/{path*}',
+        config: controller.assets.fonts
     }
 ];

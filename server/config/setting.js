@@ -10,8 +10,8 @@ module.exports = {
     host: 'localhost',
     assetsOptions :{
         development: {
-            js: ['js/test-one.js', 'js/test-two.js'],
-            css: ['css/test-one.css', 'css/test-two.css']
+            js: ['js/demo-skin-changer.js','js/jquery.js' ,'js/bootstrap.js' , 'js/jquery.nanoscroller.min.js','js/scripts.js','js/pace.min.js'],
+            css: ['css/bootstrap/bootstrap.min.css', 'css/libs/font-awesome.css' , 'css/libs/nanoscroller.css' , 'css/compiled/theme_styles.css']
         },
         production: {
             js: ['js/scripts.js'],

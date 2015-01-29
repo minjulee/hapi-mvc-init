@@ -17,5 +17,11 @@ module.exports = {
             directory: { path: 'public/js' }
         },
         id: 'js'
+    },
+    fonts: {
+        handler: {
+            directory: { path: 'public/fonts' }
+        },
+        id: 'fonts'
     }
 }
