@@ -25,7 +25,17 @@
 <body class="fixed-header fixed-leftmenu">
     <div id="theme-wrapper">
         {% include "../include/head.html" %}
-        {% block content %}{% endblock %}
+
+        <div id="page-wrapper" class="container nav-small">
+            <div class="row">
+                <div id="nav-col">
+                    {% include "../include/lnb.html" %}
+                </div>
+                <div id="content-wrapper" class="email-inbox-wrapper">
+                 {% block content %}{% endblock %}
+                </div>
+            </div>
+       </div>
     </div>
     {% include "../include/config-tool.html" %}
 
