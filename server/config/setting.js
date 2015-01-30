@@ -19,10 +19,10 @@ module.exports = {
         }
     },
     dbConfig : {
-        user: "pjy6211",
-        password: "nibw1010235c",
-        server:"pjy6211.cafe24.com",
-        database:"pjy6211",
+        user: "hapi",
+        password: "Elio1225",
+        server:"nozc2einho.database.windows.net,1433",
+        database:"hapi",
         options:{}
     }
 }
