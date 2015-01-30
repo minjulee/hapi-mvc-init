@@ -5,8 +5,8 @@ var model = reqlib("/server/model/email.js");
 module.exports = {
     index: {
         handler : function(request, reply){
-            reply.view("email/index", {
-               title : "이메일 시작페이지"
+            reply.view("email/email-inbox", {
+               title : "Email-Inbox"
             });
         },
         id : "index"
