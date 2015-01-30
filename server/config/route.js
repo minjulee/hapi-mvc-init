@@ -8,9 +8,14 @@ var controller = requireDirectory(module, '../controller');
 
 module.exports = [
     {
+    method : "GET",
+    path: "/",
+    config:controller.index.index
+    },
+    {
       method : "GET",
         path: "/email",
-        config:controller.email.index
+        config:controller.email.email_inbox
     },
     {
         method : "GET",

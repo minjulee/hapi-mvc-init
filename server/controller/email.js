@@ -3,17 +3,17 @@
  */
 var model = reqlib("/server/model/email.js");
 module.exports = {
-    index: {
+    email_inbox: {
         handler : function(request, reply){
             reply.view("email/email-inbox", {
                title : "Email-Inbox"
             });
         },
-        id : "index"
+        id : "email_inbox"
     },
     send : {
         handler : function(request, reply){
-            model.GetRecordSet("select * from ni_user_bbs", function (recordset) {
+            model.GetRecordSet("SELECT * FROM GW_EMAIL", function (recordset) {
                 reply.view("email/index", {title : process.env.NODE_ENV, data : recordset});
             });
         },
