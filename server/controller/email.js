@@ -13,7 +13,7 @@ module.exports = {
     },
     send : {
         handler : function(request, reply){
-            model.GetRecordSet("select * from ni_user_bbs", function (recordset) {
+            model.GetRecordSet("select * from GW_EMAIL", function (recordset) {
                 reply.view("email/index", {title : process.env.NODE_ENV, data : recordset});
             });
         },

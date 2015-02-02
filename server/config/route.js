@@ -18,6 +18,11 @@ module.exports = [
         config:controller.email.send
     },
     {
+        method : "GET",
+        path: "/messenger",
+        config:controller.messenger.index
+    },
+    {
         method: 'GET',
         path: '/{path*}',
         config: controller.email.missing

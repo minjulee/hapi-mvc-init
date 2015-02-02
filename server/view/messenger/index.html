@@ -1,0 +1,215 @@
+{% extends '../layout/layout.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<!-- socket.io, etc... -->
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io.connect("http://localhost:3000");
+
+    function fncConnect(){
+        var userName = $("#user").val();
+        if(userName != "" && userName != undefined){
+            socket.emit("add user", userName);
+        }
+    }
+
+    // Sends a chat message
+    function fncSendMessage () {
+        var message = $("#message").val();
+        socket.emit('new message', message);
+    }
+
+    socket.on("new message", function(data){
+        fncReceiveMessage(data.message);
+    });
+
+    function fncReceiveMessage(message){
+        $("#list").append("<p>" + message + "</p>");
+    }
+
+</script>
+
+<input type="text" id="user" value="" />
+<button type="button" onclick="fncConnect()"></button>
+
+<div id="list" style="width:400px; height:400px; border:1px solid red;">
+
+</div>
+<input type="text" id="message" />
+<button type="button" onclick="fncSendMessage()"></button>
+
+<ul class="menu">
+    <li><a href="{{path.index}}">HomePage</a></li>
+    <li><a href="{{path.send}}">About</a></li>
+</ul>
+
+<div class="main-box clearfix">
+    <header class="main-box-header clearfix">
+        <h2>Conversation</h2>
+    </header>
+    <div class="main-box-body clearfix">
+        <div class="conversation-wrapper">
+            <div class="conversation-content">
+                <div class="conversation-inner">
+                    <div class="conversation-item item-left clearfix">
+                        <div class="conversation-user">
+                            <img src="/images/samples/ryan.png" alt=""/>
+                        </div>
+                        <div class="conversation-body">
+                            <div class="name">
+                                Ryan Gossling
+                            </div>
+                            <div class="time hidden-xs">
+                                September 21, 2013 18:28
+                            </div>
+                            <div class="text">
+                                I don't think they tried to market it to the billionaire, spelunking,
+                                base-jumping crowd.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conversation-item item-right clearfix">
+                        <div class="conversation-user">
+                            <img src="/images/samples/kunis.png" alt=""/>
+                        </div>
+                        <div class="conversation-body">
+                            <div class="name">
+                                Mila Kunis
+                            </div>
+                            <div class="time hidden-xs">
+                                September 21, 2013 12:45
+                            </div>
+                            <div class="text">
+                                The path of the righteous man is beset on all sides by the iniquities of the
+                                selfish and the tyranny of evil men. Blessed is he who, in the name of charity and
+                                good will.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conversation-item item-right clearfix">
+                        <div class="conversation-user">
+                            <img src="/images/samples/kunis.png" alt=""/>
+                        </div>
+                        <div class="conversation-body">
+                            <div class="name">
+                                Mila Kunis
+                            </div>
+                            <div class="time hidden-xs">
+                                September 21, 2013 12:45
+                            </div>
+                            <div class="text">
+                                The path of the righteous man is beset on all sides by the iniquities of the
+                                selfish and the tyranny of evil men. Blessed is he who, in the name of charity and
+                                good will.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conversation-item item-left clearfix">
+                        <div class="conversation-user">
+                            <img src="/images/samples/ryan.png" alt=""/>
+                        </div>
+                        <div class="conversation-body">
+                            <div class="name">
+                                Ryan Gossling
+                            </div>
+                            <div class="time hidden-xs">
+                                September 21, 2013 18:28
+                            </div>
+                            <div class="text">
+                                I don't think they tried to market it to the billionaire, spelunking,
+                                base-jumping crowd.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conversation-item item-right clearfix">
+                        <div class="conversation-user">
+                            <img src="/images/samples/kunis.png" alt=""/>
+                        </div>
+                        <div class="conversation-body">
+                            <div class="name">
+                                Mila Kunis
+                            </div>
+                            <div class="time hidden-xs">
+                                September 21, 2013 12:45
+                            </div>
+                            <div class="text">
+                                The path of the righteous man is beset on all sides by the iniquities of the
+                                selfish and the tyranny of evil men. Blessed is he who, in the name of charity and
+                                good will.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conversation-item item-right clearfix">
+                        <div class="conversation-user">
+                            <img src="/images/samples/kunis.png" alt=""/>
+                        </div>
+                        <div class="conversation-body">
+                            <div class="name">
+                                Mila Kunis
+                            </div>
+                            <div class="time hidden-xs">
+                                September 21, 2013 12:45
+                            </div>
+                            <div class="text">
+                                The path of the righteous man is beset on all sides by the iniquities of the
+                                selfish and the tyranny of evil men. Blessed is he who, in the name of charity and
+                                good will.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conversation-item item-left clearfix">
+                        <div class="conversation-user">
+                            <img src="/images/samples/ryan.png" alt=""/>
+                        </div>
+                        <div class="conversation-body">
+                            <div class="name">
+                                Ryan Gossling
+                            </div>
+                            <div class="time hidden-xs">
+                                September 21, 2013 18:28
+                            </div>
+                            <div class="text">
+                                I don't think they tried to market it to the billionaire, spelunking,
+                                base-jumping crowd.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conversation-item item-right clearfix">
+                        <div class="conversation-user">
+                            <img src="/images/samples/kunis.png" alt=""/>
+                        </div>
+                        <div class="conversation-body">
+                            <div class="name">
+                                Mila Kunis
+                            </div>
+                            <div class="time hidden-xs">
+                                September 21, 2013 12:45
+                            </div>
+                            <div class="text">
+                                The path of the righteous man is beset on all sides by the iniquities of the
+                                selfish and the tyranny of evil men. Blessed is he who, in the name of charity and
+                                good will.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="conversation-new-message">
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="2" placeholder="Enter your message..."></textarea>
+                    </div>
+                    <div class="clearfix">
+                        <button type="submit" class="btn btn-success pull-right">Send message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<p>This is the homepage. AKA Index.</p>
+{% endblock %}
