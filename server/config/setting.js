@@ -18,13 +18,5 @@ module.exports = {
             css: ['css/styles.css']
         }
     },
-    dbConfig : {
-        user: "hapi@nozc2einho",
-        password: "Elio1225",
-        server:"nozc2einho.database.windows.net,1433",
-        database:"hapi",
-        options:{
-            encrypt: true
-        }
-    }
+    dbConnect:"mongodb://100minser.cloudapp.net:27017/hapi"
 }
