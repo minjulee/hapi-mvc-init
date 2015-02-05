@@ -4,9 +4,14 @@
 
 {% block content %}
 <!-- socket.io, etc... -->
+<style>
+    .left{ text-align:left;}
+    .right{ text-align:right;}
+</style>
 <script src="/socket.io/socket.io.js"></script>
 <script>
     var socket = io.connect("http://localhost:3000");
+    //var socket = io.connect("http://100minser.cloudapp.net:3000");
 
     function fncConnect(){
         var userName = $("#user").val();
@@ -19,15 +24,20 @@
     function fncSendMessage () {
         var message = $("#message").val();
         socket.emit('new message', message);
+        fncReceiveMessage(message, "right");
     }
 
     socket.on("new message", function(data){
-        fncReceiveMessage(data.message);
+        fncReceiveMessage(data.message, "left");
     });
 
-    function fncReceiveMessage(message){
-        $("#list").append("<p>" + message + "</p>");
+    function fncReceiveMessage(message, vClass){
+        $("#list").append("<p class='" + vClass + "'>" + message + "</p>");
     }
+
+    socket.on("user joined", function(data){
+       alert(data.username + "님이 접속하셨습니다.");
+    });
 
 </script>
 
@@ -44,6 +54,35 @@
     <li><a href="{{path.index}}">HomePage</a></li>
     <li><a href="{{path.send}}">About</a></li>
 </ul>
+
+<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+    <div class="main-box feed">
+        <header class="main-box-header clearfix">
+            <h2 class="pull-left">User List</h2>
+        </header>
+        <div class="main-box-body clearfix">
+            <ul>
+            {% for item in data %}
+                <li class="clearfix">
+                    <div class="img">
+                        <img src="/images/users/{{ item._id }}.jpg" alt=""/>
+                    </div>
+                    <div class="title">
+                        <a href="#">{{ item.name }}</a>
+                    </div>
+                    <div class="post-time">
+                        {{ item.last_time }}
+                    </div>
+                    <div class="time-ago">
+                        <i class="fa fa-clock-o"></i> 5 min.
+                    </div>
+                </li>
+            {%- endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
 
 <div class="main-box clearfix">
     <header class="main-box-header clearfix">
